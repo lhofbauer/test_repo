@@ -1,0 +1,36 @@
+Name,Description,Colour
+RK1BGS001,Residential - Cooking - Urban - Biogas,
+RK1BIO001,Residential - Cooking - Urban - Three stone open fire,
+RK1BIO005,"Residential - Cooking - Urban - Improved firewood stoves (e.g., Kuni mbili stove,manufactured firewoodstoves, gasifier stoves)",
+RK1CHC001,Residential - Cooking - Urban - Metallic charcoal stove,
+RK1CHC005,Residential - Cooking - Urban - Improved Charcoal Stove (ceramic lined stoves) ,
+RK1ELC001,Residential - Cooking - Urban - Electric coil,
+RK1ELC005,Residential - Cooking - Urban - Electric induction stove,
+RK1ELC100,Residential - Cooking - Urban - Electric Pressure Cooker,
+RK1ETH001,Residential - Cooking - Urban - Biofuel stove (e.g. KOKO),
+RK1KER001,"Residential - Cooking - Urban - Kerosene stove
+",
+RK1LPG001,Residential - Cooking - Urban - LPG stove,
+RK2BGS001,Residential - Cooking - Rural - Biogas,
+RK2BIO001,Residential - Cooking - Rural - Three stone open fire,
+RK2BIO005,"Residential - Cooking - Rural - Improved firewood stoves (e.g., Kuni mbili stove,manufactured firewoodstoves, gasifier stoves)",
+RK2CHC001,Residential - Cooking - Rural - Metallic charcoal stove,
+RK2CHC005,Residential - Cooking - Rural - Improved Charcoal Stove (ceramic lined stoves) ,
+RK2ELC001,Residential - Cooking - Rural - Electric coil,
+RK2ELC005,Residential - Cooking - Rural - Electric induction stove,
+RK2ELC100,Residential - Cooking - Rural - Electric Pressure Cooker,
+RK2ETH001,Residential - Cooking - Rural - Biofuel stove (e.g. KOKO),
+RK2KER001,"Residential - Cooking - Rural - Kerosene stove
+",
+RK2LPG001,Residential - Cooking - Rural - LPG stove,
+BGS001,Biogas,#CC6677
+BIO001,Firewood,#332288
+BIO005,Imp. firewood,#88CCEE
+CHC001,Metallic charcoal,#DDCC77
+CHC005,Imp. charcoal,#DDCC50
+ELC001,Electric coil,#999933
+ELC005,Electric induction,#117733
+ELC100,Electric pressure,#44AA99
+ETH001,Biofuel,#882255
+KER001,Kerosene,#AA4499
+LPG001,LPG,#DDDDDD

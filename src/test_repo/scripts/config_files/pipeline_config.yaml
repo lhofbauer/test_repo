@@ -1,0 +1,21 @@
+# Configuration for workflow of CORE-WESM
+filepaths:
+    national_data_file : '../model/national_datafiles/data_smp_mod.txt' # file path to the datafile of the OSeMOSYS Kenya national energy system model
+    national_spreadsheet_file : '../model/national_spreadsheets/data_smp.xlsx' # file path to the national model in spreadsheet format
+    downscaled_model_path : '../model/county_model/v011/' # directory path to save the downscaled model files to
+    county_processed_path : '../model/county_model_processed/v011/' # directory path to save processed country model files to
+    results_path: "../results/" # path to the results directory
+    data_config_file_NM : './config_files/config_OSeMOSYS_Kenya.yaml' # file path to the OSeMOSYS data config file for the OSeMOSYS Kenya model
+    data_config_file_CW : './config_files/config_CORE-WESM.yaml' # file path to the OSeMOSYS data config file for the county-resolved model
+    glpk_dir : '../envs/bin/'
+downscaling:
+    tech_to_sector_mapping_file : 'config_files/tech_to_sector.xlsx'
+    comm_to_sector_mapping_file : 'config_files/dem_com_to_sector.xlsx'
+    list_counties_file : "config_files/list_counties.csv"
+    pop_file : '../data/KNBS/counties_population_KNBS.csv'
+    pop_file_ruur : '../data/KNBS/distribution-of-urban-rural-population.csv'
+    gdp_file : "../data/GCP/GCP_2020.csv"
+    downscaled_sectors : ["Residential","Residential-Urban","Residential-Rural","Services","Agriculture"] # sectors that are downscaled to the county level
+    remove_fte_tech_mode : True # if to remove FTE techs
+county_processing:
+    datasets : ["cooking"] # which county-level datasets and other enhancements to incorporate

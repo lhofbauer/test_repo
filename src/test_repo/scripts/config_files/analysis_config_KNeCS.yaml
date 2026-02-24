@@ -1,0 +1,34 @@
+name: KNeCS
+
+scenarios: # Scenarios need to have unique names
+    - name: "BAU" # scenario name
+      model: "WESM" # model – this can be used to split out parts of a model
+      levers: ["S1"] # list of scenario lever that will be used
+      timehorizon: [2015,2051] # note the end year is not included
+    - name: "SimNetZero" # scenario name
+      model: "WESM" # model – this can be used to split out parts of a model
+      levers: ["S4"] # list of scenario lever that will be used
+      timehorizon: [2015,2051] # note the end year is not included
+    - name: "KNeCS"
+      model: "WESM"
+      levers: ["S3"]
+      timehorizon: [2015,2051]
+    - name: "StatedPolicies"
+      model: "WESM"
+      levers: ["S2"]
+      timehorizon: [2015,2051] 
+    - name: "OptNetZero"
+      model: "WESM"
+      levers: ["S5"]
+      timehorizon: [2015,2051]
+
+runs:
+    model_file: "../model/osemosys_preprocessing_adapted_f.txt"
+    agg_years: "config_files/ysa.csv"
+    agg_ts: "config_files/tsa_2ts.csv"
+    agg_cfg: "config_files/tap.csv"
+    naming: "config_files/naming.csv"
+    spatial_config: "full" # ["KL","NE"]
+    scenarios: ["BAU","StatedPolicies","KNeCS"]
+
+
