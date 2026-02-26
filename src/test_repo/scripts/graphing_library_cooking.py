@@ -293,7 +293,10 @@ def plot_counties(results,
                         row=ii+1,col=i+1
                         )
             
-    fig.update_yaxes(range=[0,1])        
+    fig.update_yaxes(range=[0,1])
+    fig.update_yaxes(title="Share of cooking demand met by technology (-)",
+                     row=3,
+                     col=1)          
     fig.update_layout(
         #boxmode="group",
         #xaxis=dict(
@@ -426,7 +429,7 @@ def plot_county_impacts(results,
     fig = make_subplots(rows=len(imp), cols=len(scenarios),
                         shared_yaxes="all",
                         shared_xaxes="columns",
-                        row_titles=imp,
+                        #row_titles=imp,
                         column_titles=scenarios,
                         horizontal_spacing=0.05,
                         vertical_spacing=0.05)
