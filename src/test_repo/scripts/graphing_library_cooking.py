@@ -308,6 +308,7 @@ def plot_counties(results,
         #            traceorder="reversed"),
         margin=dict(l=0, r=25, t=25, b=0),
         width=800,
+        height=800,
     )
     #fig.write_image("figures/counties.png", engine="kaleido")
     fig.show()  
@@ -504,6 +505,7 @@ def plot_county_impacts(results,
         #            traceorder="reversed"),
         margin=dict(l=0, r=25, t=25, b=0),
         width=800,
+        height=800,
     )
     fig.show()     
     # old version
