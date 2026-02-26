@@ -157,48 +157,6 @@ def run_model(dataconfig_file,
                          dcfg = dcfg)
 
 
-    #%% test tz-osemosys run
-    
-    # # clean data
-    # # FIXME: needs proper addressing elsewhere?
-    # data["Reference"]["SpecifiedDemandProfile"] = data["Reference"]["SpecifiedDemandProfile"].loc[data["Reference"]["SpecifiedDemandProfile"].index.get_level_values("FUEL").isin(data["Reference"]["SpecifiedAnnualDemand"].index.get_level_values("FUEL").unique())]
-    # data["Reference"]["ReserveMarginTagTechnology"].loc[:,"VALUE"] = data["Reference"]["ReserveMarginTagTechnology"].loc[:,"VALUE"].astype(int)
-    # data["Reference"]["ReserveMarginTagFuel"].loc[:,"VALUE"] = data["Reference"]["ReserveMarginTagFuel"].loc[:,"VALUE"].astype(int)
-    
-    
-    # from tz.osemosys.schemas.time_definition import TimeDefinition
-    # TimeDefinition(**basic_time_definition)
-    # basic_time_definition = dict(
-    #     id="Reference",
-    #     years=range(2019, 2051),
-    #     timeslices=['S11', 'S12', 'S14', 'S15'],
-    #     year_split={'S11': 0.2499, 'S12': 0.3748, 'S14': 0.1667, 'S15': 0.2084},
-    #     adj={
-    #         "years": dict(zip(range(2019, 2050), range(2020, 2051))),
-    #         "timeslices": dict(zip(['S11', 'S12', 'S14'], ['S12', 'S14', 'S15'])),
-    #     },
-    # )
-    
-    # TimeDefinition(**basic_time_definition)
-    # model.time_definition = TimeDefinition(**basic_time_definition)
-    
-    
-    # # copy in time sets and params - currently manually
-    # # remove artificial storage set elements - DONE
-    # # yearsplit constant across years - FINE?
-    # # reserve margin issue (some techs listed don't exist, potentially?) - FINE?
-    # # fuels not produced by any tech (BA9ELC003,NA9ELC003) - FINE?
-    # # emissions not caused by any tech (NA9CO2com,NA9CO2ind,NA9CO2tra,...)  – currently manually
-    # # no demand and not input (but output of a tech) (NA9COA,NA9ELC001,NA9GEO, ...) - FINE?
-    
-    # from tz.osemosys import Model
-    # op.write_csv(data, "./test_csvs", pcfg, dcfg)
-    # path_to_csvs = "./Reference_running"
-    # path_to_csvs = "./test_csvs/Reference"
-    # model = Model.from_otoole_csv(root_dir=path_to_csvs)
-    
-    # model.solve(solver="highs")
-
 
 #%%
         # run model
@@ -387,6 +345,34 @@ def plot_counties(input_path,
                                agg_years = years_agg_file,
                                )
      
+
+def plot_counties_impact(input_path,
+                  dataconfig_file,
+                  years_agg_file,
+                  scenario_list,
+                  counties,
+                  list_counties,
+                  naming=None):
+            
+    # load data config file
+    with open(dataconfig_file) as s:    
+        try:
+            dcfg = yaml.safe_load(s)
+        except yaml.YAMLError as exc:
+            logger.error(exc) 
+    
+    # load results
+    res = op.load_results(results_path=input_path,
+                          scenario_list = scenario_list,
+                          dcfg=dcfg)
+
+    if naming is not None:
+        gcfg = pd.read_csv(naming)
+        naming = gcfg.set_index("Name")["Description"]
+        col = gcfg.set_index("Description")["Colour"]
+    
+
+     
     glc.plot_county_impacts(results=res,
                                parameter = "UseByTechnologyAnnual",
                                scenarios = scenario_list,
@@ -396,8 +382,8 @@ def plot_counties(input_path,
                                naming=naming,
                                col=col,
                                agg_years = years_agg_file,
-                               )  
-
+                               )
+    
 def plot_county(input_path,
                 county,
                 dataconfig_file,
